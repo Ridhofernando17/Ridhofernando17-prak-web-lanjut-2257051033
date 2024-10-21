@@ -43,7 +43,7 @@ class UserController extends Controller
         $user = $this->userModel->create($validatedData);
 
         // Redirect to user list or profile
-        return redirect()->to('/user')->with('success', 'User created successfully.');
+        return redirect()->to('/user/list')->with('success', 'User created successfully.');
     }
 
     public function index()
