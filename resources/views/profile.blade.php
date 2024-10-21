@@ -3,72 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Halaman Profil</title>
     <style>
-        body {
-            background: linear-gradient(to bottom, #0099ff 50%, #f0f0f0 50%);
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .profile-container {
-            background-color: white;
-            width: 250px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            position: relative;
-        }
-        .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 auto;
-            background-color: #f5f5f5;
-        }
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .profile-info {
-            margin-top: 15px;
-        }
-        .profile-info div {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        .profile-info .name {
-            font-size: 18px;
-            color: #333;
-        }
-        .profile-info .npm {
-            color: #007bff;
-        }
-        .profile-info .class {
-            font-size: 12px;
-            color: #555;
-        }
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width:500px;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #74ebd5;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    color: #333;
+}
+
+.profile-name {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+.profile-name:hover, .profile-class:hover, .profile-npm:hover{
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5)
+}
+.profile-class, .profile-npm, .profile-name  {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-class {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profile-npm {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.profile-avatar img:hover {
+    border-color: #ACB6E5;
+    transition: 0.3s;
+}
+
     </style>
 </head>
 <body>
-
-<div class="profile-container">
-    <div class="profile-image">
-        <img src="path-to-your-image" alt="Profile Picture">
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-avatar">
+            <img src="{{ $user->foto ? asset($user->foto) : asset('assets/upload/img/default-foto.jpg') }}" alt="Profile" >
+            </div>
+            <div class="profile-info">
+                <p class="profile-name">Nama : <br>{{ $user->nama }}</p>
+                <p class="profile-class">NPM: <br>{{ $user->npm }}</p>
+                <p class="profile-npm">Kelas: <br>{{ $user->nama_kelas ?? 'Kelas Tidak ditemukan'}}</p>
+            </div>
+        </div>
     </div>
-    <div class="profile-info">
-    <h1>Profil User</h1>
-        <p>Nama: {{ $nama }}</p>
-        <p>NPM: {{ $npm }}</p>
-        <p>Kelas: {{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</p>
-    </div>
-</div>
-
 </body>
 </html>
