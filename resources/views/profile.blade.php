@@ -63,9 +63,10 @@
         <img src="path-to-your-image" alt="Profile Picture">
     </div>
     <div class="profile-info">
-        <div class="name"><?= $nama ?></div>
-        <div class="npm"><?= $npm ?></div>
-        <div class="class"><?= $kelas ?></div>
+    <h1>Profil User</h1>
+        <p>Nama: {{ $nama }}</p>
+        <p>NPM: {{ $npm }}</p>
+        <p>Kelas: {{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</p>
     </div>
 </div>
 
