@@ -91,6 +91,16 @@
             @endif
         </div>
 
+        <div class="form-group">
+            <label for="jurusan">Jurusan:</label>
+            <input type="text" id="jurusan" name="jurusan" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester" class="form-control" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button><br><br>
     </form>
 </div>

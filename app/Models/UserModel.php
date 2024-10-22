@@ -15,6 +15,8 @@ class UserModel extends Model
         'npm',
         'kelas_id',
         'foto',
+        'semester',
+        'jurusan',
     ];
 
     public function Kelas(){
