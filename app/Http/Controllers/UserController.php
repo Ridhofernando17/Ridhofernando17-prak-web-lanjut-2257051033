@@ -61,6 +61,9 @@ class UserController extends Controller
             'npm' => 'required|string|max:255',
             'kelas_id' => 'required|integer',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'jurusan' => 'required|string|max:255',
+            'semester' => 'required|integer'
+
         ]);
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
@@ -74,7 +77,10 @@ class UserController extends Controller
                 'nama' => $request->input('nama'),
                 'npm' => $request->input('npm'),
                 'kelas_id' => $request->input('kelas_id'),
-                'foto' => $fotoPath, // Menyimpan path foto
+                'foto' => $fotoPath, 
+                'jurusan' => $request->input('jurusan'),
+                'semester' => $request->input('semester'),
+                
                 ]);
                 return redirect()->to('/user')->with('success', 'User berhasil ditambahkan');
     }

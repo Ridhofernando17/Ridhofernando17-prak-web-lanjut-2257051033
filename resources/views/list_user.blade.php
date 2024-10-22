@@ -51,7 +51,7 @@
         object-fit: cover;
     }
 </style>
-
+<!-- 
 <div class="container">
     <h2 class="mb-4">Daftar Pengguna</h2>
     <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Pengguna Baru</a>
@@ -99,4 +99,15 @@
         </table>
     </div>
 </div>
-@endsection
+@endsection -->
+@foreach ($users as $user)
+<div class="card" style="width: 18rem;">
+<img src="{{ asset($user->foto) }}" alt="Foto {{ $user->nama }}" height="200px" width="300px">
+
+  <div class="card-body">
+    <h5 class="card-title">{{ $user->nama }}</h5>
+    <p class="card-text">{{ $user->semester }}</p>
+    <p class="card-text">{{ $user->jurusan }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+@endforeach
